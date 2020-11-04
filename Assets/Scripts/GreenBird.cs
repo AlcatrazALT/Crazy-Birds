@@ -18,6 +18,9 @@ public class GreenBird : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        GetComponent<LineRenderer>().SetPosition(1, _initialPosition);
+        GetComponent<LineRenderer>().SetPosition(0, transform.position);
+
         if (_isBirdLaunched && GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
         {
             _timeSittingAround += Time.deltaTime;
@@ -39,6 +42,7 @@ public class GreenBird : MonoBehaviour
     private void OnMouseDown()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponent<LineRenderer>().enabled = true;
     }
 
     private void OnMouseUp()
@@ -49,6 +53,8 @@ public class GreenBird : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(directionToInitPosition * _launchPower);
         GetComponent<Rigidbody2D>().gravityScale = 1;
         _isBirdLaunched = true;
+
+        GetComponent<LineRenderer>().enabled = false;
     }
 
     private void OnMouseDrag()
