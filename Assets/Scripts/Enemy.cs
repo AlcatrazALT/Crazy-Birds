@@ -35,6 +35,6 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(_cloudParticlePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
-        } 
+        }
     }
 }
