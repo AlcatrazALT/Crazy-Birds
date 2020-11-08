@@ -26,8 +26,8 @@ public class GreenBird : MonoBehaviour
             _timeSittingAround += Time.deltaTime;
         }
 
-        if (transform.position.y < -10 || transform.position.y > 10
-            || transform.position.x < -10 || transform.position.x > 10 || _timeSittingAround > 3)
+        if (transform.position.y < -15 || transform.position.y > 15
+            || transform.position.x < -15 || transform.position.x > 15 || _timeSittingAround > 3)
         {
             var currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
